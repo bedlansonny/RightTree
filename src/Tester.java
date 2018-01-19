@@ -16,7 +16,13 @@ public class Tester
             for(int i = 0; i < chars.length; i++)
                 nums[i] = (int)chars[i]-48;
 
-
+            for(int lvl = 0; Math.pow(2, lvl) <= nums.length; lvl++)
+            {
+                System.out.print(lvl + " ");
+                //if leftsum > rightsum return false
+                //else keep going
+            }
+            System.out.println();
         }
     }
 }
