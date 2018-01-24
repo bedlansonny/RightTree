@@ -15,28 +15,21 @@ public class Tester
             int[] nums = new int[chars.length];
             for(int i = 0; i < chars.length; i++)
                 nums[i] = (int)chars[i]-48;
+            int[] filledArr = new int[(int)Math.pow(2, (int)Math.ceil(Math.log(nums.length+1)/Math.log(2)))-1];
+            System.arraycopy(nums, 0, filledArr, 0, nums.length);
 
-            System.out.println(line + " " + isRight(nums));
+            System.out.println(isRight(filledArr));
 
         }
     }
 
-    //make truelength method? (round up to compensate for no zeros on the end)
-
     public static boolean isRight(int[] nums)
     {
-        for(int i = nums.length-2; i > 0; i--)
+        for(int i = nums.length-2; i > 0; i-=2)
         {
-            //if i > i+1 return false
             if(nums[i] > nums[i+1])
                 return false;
-
-            //add 1 to parent for each that is 1
-            if(nums[i] > 0)
-                nums[(i-1)/2]++;
-            if(nums[i+1] > 0)
-                nums[(i-1)/2]++;
-
+            nums[(i-1)/2] += nums[i] + nums[i+1];
         }
         return true;
     }
