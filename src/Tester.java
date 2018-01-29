@@ -8,7 +8,7 @@ public class Tester
         int testCaseNum = in.nextInt();
             in.nextLine();
 
-        for(int testCaseInd = 0; testCaseInd < testCaseNum; testCaseInd++)
+        for(int testCaseInd = 1; testCaseInd <= testCaseNum; testCaseInd++)
         {
             String line = in.nextLine();
             char[] chars = line.toCharArray();
@@ -18,7 +18,7 @@ public class Tester
             int[] filledArr = new int[(int)Math.pow(2, (int)Math.ceil(Math.log(nums.length+1)/Math.log(2)))-1];
             System.arraycopy(nums, 0, filledArr, 0, nums.length);
 
-            System.out.println(isRight(filledArr));
+            System.out.println("Tree " + testCaseInd + (isRight(filledArr) ? " is " : " is not ") + "a right-tree.");
 
         }
     }
